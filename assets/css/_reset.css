@@ -1,0 +1,32 @@
+:root {
+  --color-primary: #0295db;
+  --color-secondary: #9d9da1;
+  --color-light: #e0e5e9;
+  --color-black: #262626;
+  --color-orange: #f26a21;
+  
+}
+*,
+body,
+p {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  max-width: 1400px;
+  margin: auto;
+  background-color: #fff;
+  color: #07090e;
+}
+a {
+  text-decoration: none;
+}
+ol,
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
