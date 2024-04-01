@@ -1,5 +1,5 @@
+import { setCookie } from "../../utils/cookie.js";
 import { postData } from "../../utils/httpReq.js";
-import { setCookie } from "../../utils/validation.js";
 
 const inputs = document.querySelectorAll("input");
 const loginButton = document.getElementById("login-btn");
