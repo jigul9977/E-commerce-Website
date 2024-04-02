@@ -1,0 +1,129 @@
+@import "_reset.css";
+
+body {
+  background-color: var(--color-light);
+}
+/* document-loader */
+#document-loader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+#document-loader .spinner-border {
+  border: 8px solid var(--color-primary);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border-left-color: transparent;
+  animation: spinner infinite linear 0.75s;
+}
+@keyframes spinner {
+	to {transform: rotate(360deg);}
+}
+/* header section */
+header #header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+  margin-bottom: 32px;
+}
+header #header-content h3 {
+  color: var(--color-primary);
+  font-size: 32px;
+}
+header #header-content > div a {
+  background-color: #fff;
+  color: var(--color-black);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.1s ease-in;
+}
+header #header-content > div a:hover {
+  background-color: var(--color-black);
+  color: #fff;
+}
+header #header-content > div a i {
+  margin-left: 8px;
+  color: var(--color-orange);
+}
+/* search section */
+
+#searchbox-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#searchbox-section #searchbox {
+  width: 70%;
+  padding: 12px;
+  border: 3px solid var(--color-secondary);
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.1s ease-in;
+}
+#searchbox-section #searchbox:focus {
+  border-color: var(--color-black);
+}
+#searchbox-section button {
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 20px;
+  position: absolute;
+  right: 15%;
+  margin-right: 8px;
+  padding: 12px;
+  border-radius: 0 12px 12px 0;
+  outline: 0;
+  border: none;
+  color: var(--color-orange);
+  transition: all 0.1s ease-in;
+}
+#searchbox-section button:hover {
+  transform: scale(1.2);
+}
+/* main section */
+#main {
+  display: flex;
+  margin: 80px 0 40px;
+}
+#main .filter-section {
+  padding: 24px;
+  margin-left: 24px;
+  height: fit-content;
+  border-radius: 12px;
+  background-color: #fff;
+  flex-basis: 20%;
+}
+#main .filter-section > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 600;
+}
+#main .filter-section > div i {
+  margin-right: 16px;
+  font-size: 20px;
+}
+#main .filter-section ul li {
+  padding: 12px 0;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.1s ease;
+}
+#main .filter-section ul li:hover {
+  color: var(--color-primary);
+}
+#main .filter-section ul li.active {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  padding-left: 16px;
+  border-radius: 8px;
+  font-weight: bold;
+}

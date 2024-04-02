@@ -10,10 +10,43 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/homepage.css" />
     <title>Shopping Site</title>
   </head>
   <body>
+    <header>
+      <div id="header-content">
+        <h3>Shopping Site</h3>
+        <div>
+          <a href="./auth.html">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+          <a href="./dashboard.html">Dashboard <i class="fa-solid fa-house"></i></a>
+        </div>
+      </div>
+    </header>
+    <section id="searchbox-section">
+      <input id="searchbox" type="text" placeholder="Search Product" />
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </section>
+    <section id="main">
+      <div class="products-section">
+        <div id="document-loader" class="d-flex justify-content-center">
+          <div class="spinner-border custom-spinner-border" role="status"></div>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div>
+          <i class="fa-solid fa-filter"></i>
+          <p>categories</p>
+        </div>
+        <ul>
+          <li class="active">All</li>
+          <li>Electronics</li>
+          <li>Jewelery</li>
+          <li>Men's Clothing</li>
+          <li>Women's Clothing</li>
+        </ul>
+      </div>
+    </section>
     <script src=""></script>
   </body>
 </html>
