@@ -3,23 +3,7 @@
 body {
   background-color: var(--color-light);
 }
-/* document-loader */
-#document-loader {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-#document-loader .spinner-border {
-  border: 8px solid var(--color-primary);
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border-left-color: transparent;
-  animation: spinner infinite linear 0.75s;
-}
-@keyframes spinner {
-	to {transform: rotate(360deg);}
-}
+
 /* header section */
 header #header-content {
   display: flex;
@@ -38,6 +22,7 @@ header #header-content > div a {
   padding: 12px 16px;
   border-radius: 8px;
   font-weight: 700;
+  outline: none;
   transition: all 0.1s ease-in;
 }
 header #header-content > div a:hover {
@@ -86,10 +71,31 @@ header #header-content > div a i {
 #searchbox-section button:hover {
   transform: scale(1.2);
 }
+/* document-loader */
+#document-loader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+#document-loader .spinner-border {
+  border: 8px solid var(--color-primary);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border-left-color: transparent;
+  animation: spinner infinite linear 0.75s;
+}
+@keyframes spinner {
+	to {transform: rotate(360deg);}
+}
+
 /* main section */
 #main {
   display: flex;
   margin: 80px 0 40px;
+}
+#main .products-section{
+  flex-basis: 80%;
 }
 #main .filter-section {
   padding: 24px;
