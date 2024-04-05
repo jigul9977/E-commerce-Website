@@ -2,9 +2,13 @@ import { getCookie } from "../../utils/cookie.js";
 import { getData } from "../../utils/httpReq.js";
 import { shortenText } from "../../utils/stringFunctions.js";
 
+let allProducts = null;
+
 const loginButton = document.getElementById("login-btn");
 const dashboardButton = document.getElementById("dashboard-btn");
 const productsSection = document.getElementById("products-section");
+const searchButton = document.getElementById("search-btn");
+const searchBox = document.getElementById("searchbox");
 
 const showProducts = (products) => {
   productsSection.innerHTML = "";
@@ -13,7 +17,7 @@ const showProducts = (products) => {
     const productCardJSX = `
     <div class="card">
       <img alt="${title}" src=${image}>
-      <h4> ${shortenText(title)} </h4>
+      <h4>${shortenText(title)}</h4>
       <div class="price">
         <p>$ ${price}</p>
         <button>Buy <i class="fa-solid fa-cart-shopping"></i></button>
@@ -38,8 +42,20 @@ const init = async () => {
   } else {
     dashboardButton.style.display = "none";
   }
-  const allProducts = await getData("products");
+  allProducts = await getData("products");
+
   showProducts(allProducts);
 };
 
+const searchHandler = () => {
+  const query = searchBox.value.trim().toLowerCase();
+
+  if (!query) return showProducts(allProducts);
+  const filteredProducts = allProducts.filter((product) => {
+    return product.title.toLowerCase().includes(query);
+  });
+  showProducts(filteredProducts);
+};
+
 document.addEventListener("DOMContentLoaded", init);
+searchButton.addEventListener("click", searchHandler);
