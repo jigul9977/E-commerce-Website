@@ -10,7 +10,8 @@ const productsSection = document.getElementById("products-section");
 const searchButton = document.getElementById("search-btn");
 const searchBox = document.getElementById("searchbox");
 const listItems = document.querySelectorAll("#list-items li");
-
+let searchValue = "";
+let category = "all";
 const showProducts = (products) => {
   productsSection.innerHTML = "";
   products.forEach((product) => {
@@ -47,19 +48,24 @@ const init = async () => {
 
   showProducts(allProducts);
 };
+const filterProducts = () => {
+  const filteredProducts = allProducts.filter((product) => {
+    if (category === "all") {
+      return product.title.toLowerCase().includes(searchValue);
+    } else {
+      return product.title.toLowerCase().includes(searchValue) && product.category.toLowerCase() === category;
+    }
+  });
+  showProducts(filteredProducts)
+};
 
 const searchHandler = () => {
-  const query = searchBox.value.trim().toLowerCase();
-
-  if (!query) return showProducts(allProducts);
-  const searchedProducts = allProducts.filter((product) => {
-    return product.title.toLowerCase().includes(query);
-  });
-  showProducts(searchedProducts);
+  searchValue = searchBox.value.trim().toLowerCase();
+  filterProducts();
 };
 
 const filterHandler = (event) => {
-  const category = event.target.innerText.toLowerCase();
+  category = event.target.innerText.toLowerCase();
   listItems.forEach((li) => {
     if (li.innerText.toLowerCase() === category) {
       li.className = "active";
@@ -67,11 +73,8 @@ const filterHandler = (event) => {
       li.className = "";
     }
   });
-  if (category === "all") return showProducts(allProducts);
-  const filteredProducts = allProducts.filter((product) => {
-    return product.category.toLowerCase() === category;
-  });
-  showProducts(filteredProducts);
+  filterProducts();
+
 };
 
 document.addEventListener("DOMContentLoaded", init);
