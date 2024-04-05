@@ -9,6 +9,7 @@ const dashboardButton = document.getElementById("dashboard-btn");
 const productsSection = document.getElementById("products-section");
 const searchButton = document.getElementById("search-btn");
 const searchBox = document.getElementById("searchbox");
+const listItems = document.querySelectorAll("#list-items li");
 
 const showProducts = (products) => {
   productsSection.innerHTML = "";
@@ -51,11 +52,28 @@ const searchHandler = () => {
   const query = searchBox.value.trim().toLowerCase();
 
   if (!query) return showProducts(allProducts);
-  const filteredProducts = allProducts.filter((product) => {
+  const searchedProducts = allProducts.filter((product) => {
     return product.title.toLowerCase().includes(query);
+  });
+  showProducts(searchedProducts);
+};
+
+const filterHandler = (event) => {
+  const category = event.target.innerText.toLowerCase();
+  listItems.forEach((li) => {
+    if (li.innerText.toLowerCase() === category) {
+      li.className = "active";
+    } else {
+      li.className = "";
+    }
+  });
+  if (category === "all") return showProducts(allProducts);
+  const filteredProducts = allProducts.filter((product) => {
+    return product.category.toLowerCase() === category;
   });
   showProducts(filteredProducts);
 };
 
 document.addEventListener("DOMContentLoaded", init);
 searchButton.addEventListener("click", searchHandler);
+listItems.forEach((li) => li.addEventListener("click", filterHandler));
