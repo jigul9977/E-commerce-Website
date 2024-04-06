@@ -1,0 +1,80 @@
+@import "_reset.css";
+header #header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+  margin-bottom: 32px;
+}
+header #header-content h3 {
+  color: var(--color-primary);
+  font-size: 32px;
+}
+header #header-content > div a  {
+  background-color: #fff;
+  color: var(--color-black);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  outline: none;
+	cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+header #header-content > div #logout-btn{
+	color: var(--color-orange);
+	margin-left: 16px;
+}
+header #header-content > div a:hover {
+  background-color: var(--color-black);
+  color: #fff;
+}
+
+header #header-content > div  i {
+  margin-left: 8px;
+  
+}
+#main h1{
+  margin: 56px 0 40px;
+}
+#user-section .user-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 32px 24px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+#user-section .user-card h3{
+  background-color: var(--color-primary);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  flex-grow: 0;
+}
+#user-section .user-card div{
+  background-color: var(--color-light);
+  padding: 16px;
+  border-radius: 6px;
+  flex-basis: 15%;
+}
+#user-section .user-card div:last-child{
+  flex-basis: 25%;
+}
+#user-section .user-card div p{
+  color: var(--color-orange);
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+#user-section .user-card div p i{
+  margin-right: 8px;
+}
+
+

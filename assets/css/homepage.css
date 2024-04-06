@@ -1,8 +1,6 @@
 @import "_reset.css";
 
-body {
-  background-color: var(--color-light);
-}
+
 
 /* header section */
 header #header-content {
