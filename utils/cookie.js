@@ -12,4 +12,8 @@ const getCookie = () => {
     return false;
   }
 };
-export { setCookie, getCookie };
+const deleteCookie = () => {
+  document.cookie = "token=; max-age=0";
+  location.assign("./index.html")
+};
+export { setCookie, getCookie, deleteCookie };

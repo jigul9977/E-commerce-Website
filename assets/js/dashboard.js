@@ -1,8 +1,9 @@
 import { authHandler } from "../../utils/authorization.js";
+import { deleteCookie, getCookie } from "../../utils/cookie.js";
 import { getData } from "../../utils/httpReq.js";
 
 const userSection = document.getElementById("user-section");
-
+const logoutButton = document.getElementById("logout-btn");
 const showUsers = (users) => {
   userSection.innerHTML = "";
   users.forEach((user) => {
@@ -44,6 +45,9 @@ const init = async () => {
   showUsers(users);
 };
 
-
+const logoutHandler = () => {
+  deleteCookie();
+}
 
 document.addEventListener("DOMContentLoaded", init);
+logoutButton.addEventListener("click",logoutHandler)
